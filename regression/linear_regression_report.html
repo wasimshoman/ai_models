@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression (Sklearn) Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-50">
+    <div class="max-w-5xl mx-auto bg-white p-6 rounded-2xl shadow">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 border-b-4 border-indigo-500 pb-2">
+            Linear Regression (Sklearn) – Trip Duration Prediction
+        </h1>
+
+        <!-- MODEL PERFORMANCE -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Model Performance Metrics</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-4 bg-green-100 rounded-lg">
+                    <p class="text-xs font-medium text-green-800 uppercase">R² Score</p>
+                    <p class="text-3xl font-extrabold text-green-700 mt-1">0.6327</p>
+                </div>
+                <div class="p-4 bg-blue-100 rounded-lg">
+                    <p class="text-xs font-medium text-blue-800 uppercase">MAE</p>
+                    <p class="text-3xl font-extrabold text-blue-700 mt-1">251.3749</p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <p class="text-xs font-medium text-purple-800 uppercase">RMSE</p>
+                    <p class="text-3xl font-extrabold text-purple-700 mt-1">348.1353</p>
+                </div>
+                <div class="p-4 bg-red-100 rounded-lg">
+                    <p class="text-xs font-medium text-red-800 uppercase">MSE</p>
+                    <p class="text-3xl font-extrabold text-red-700 mt-1">121198.2166</p>
+                </div>
+            </div>
+            <div class="mt-4 p-3 bg-gray-100 rounded-lg text-sm">
+                <span class="font-semibold text-gray-700">Training Duration:</span> 
+                <span class="font-mono text-base text-gray-800">0.55 seconds</span>
+            </div>
+        </div>
+
+        <!-- MODEL CONFIGURATION -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-700 mb-3">Model Configuration</h2>
+            <ul class="text-gray-700 list-disc pl-6">
+                <li><strong>Total Parameters:</strong> 29</li>
+                <li><strong>Trainable Parameters:</strong> 29</li>
+                <li><strong>Hardware:</strong> CPU</li>
+                <li><strong>Input Features:</strong> 29</li>
+                <li><strong>Numerical Features:</strong> vendor_id, passenger_count, Distance_KM, Manhattan_Distance, day_of_week, pickup_hour, pickup_day, pickup_month</li>
+                <li><strong>Categorical Features:</strong> store_and_fwd_flag_V, time_of_day_category, is_weekend, pickup_cluster, dropoff_cluster, is_holiday</li>
+            </ul>
+        </div>
+
+        <!-- MODEL SUMMARY -->
+        <div class="p-4 bg-gray-100 rounded-lg">
+            <h2 class="text-xl font-semibold text-indigo-700 mb-2">Model Summary</h2>
+            <pre class="text-sm font-mono text-gray-800 overflow-x-auto">Linear Regression model with normalized + one-hot encoded input.</pre>
+        </div>
+    </div>
+</body>
+</html>

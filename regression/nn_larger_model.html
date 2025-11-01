@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NN Regression Performance Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; }
+        .card { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); }
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-5xl mx-auto bg-white p-6 md:p-10 rounded-xl card">
+        <h1 class="text-3xl font-bold text-gray-800 border-b-4 border-indigo-500 pb-2 mb-6">
+            Neural Network Regression Performance Report: larger_model
+        </h1>
+        <p class="text-gray-600 mb-8">
+            Detailed summary of the model training, convergence, and evaluation process for the <code>trip_duration</code> prediction task.
+        </p>
+
+        <!-- METRICS SECTION -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-700 mb-4 border-b pb-1">1. Evaluation Metrics</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+                <!-- MAE CARD -->
+                <div class="p-5 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-sm font-medium text-gray-500">Mean Absolute Error (MAE)</p>
+                    <p class="text-3xl font-bold text-red-600 font-mono">198.7406</p>
+                    <p class="text-xs text-gray-500">Avg. error in seconds</p>
+                </div>
+
+                <!-- RMSE CARD -->
+                <div class="p-5 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-sm font-medium text-gray-500">Root Mean Squared Error (RMSE)</p>
+                    <p class="text-3xl font-bold text-red-700 font-mono">293.5468</p>
+                    <p class="text-xs text-gray-500">Scaled error metric</p>
+                </div>
+
+                <!-- R2 CARD -->
+                <div class="p-5 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-sm font-medium text-gray-500">Coefficient of Determination ($R^2$)</p>
+                    <p class="text-3xl font-bold text-green-600 font-mono">73.88%</p>
+                    <p class="text-xs text-gray-500">Variance explained</p>
+                </div>
+
+                <!-- MSE CARD -->
+                <div class="p-5 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-sm font-medium text-gray-500">Mean Squared Error (MSE)</p>
+                    <p class="text-3xl font-bold text-red-500 font-mono">86169.7344</p>
+                    <p class="text-xs text-gray-500">Penalty for large errors</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRAINING LOG SECTION -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-700 mb-4 border-b pb-1">2. Training Convergence Log (20 Epochs)</h2>
+            <div class="overflow-x-auto rounded-lg border border-gray-200">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-2 border border-gray-200 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Epoch</th>
+                            <th class="p-2 border border-gray-200 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Loss (Train)</th>
+                            <th class="p-2 border border-gray-200 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">MAE (Train)</th>
+                            <th class="p-2 border border-gray-200 text-right text-xs font-medium text-blue-700 uppercase tracking-wider bg-blue-100">Loss (Validation)</th>
+                            <th class="p-2 border border-gray-200 text-right text-xs font-medium text-blue-700 uppercase tracking-wider bg-blue-100">MAE (Validation)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">1</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">434.7578</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">434.0168</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">245.0190</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">244.1624</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">2</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">227.2594</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">226.3464</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">215.4910</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">214.5258</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">3</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">218.5235</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">217.5118</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">213.2279</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">212.1701</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">4</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">215.9164</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">214.8199</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">211.4344</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">210.2987</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">5</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">214.2406</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">213.0638</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">209.9623</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">208.7395</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">6</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">212.2919</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">211.0126</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">207.6116</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">206.2752</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">7</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">210.5171</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">209.1315</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">205.7651</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">204.3298</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">8</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">209.1373</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">207.6662</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">204.7392</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">203.2300</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">9</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">208.2299</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">206.6938</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">203.9218</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">202.3579</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">10</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">207.6023</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">206.0152</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">203.4633</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.8550</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">11</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">207.0354</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">205.4090</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">202.8228</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.1756</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">12</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">206.5874</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.9245</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">202.9749</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.2963</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">13</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">206.0925</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.3971</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.9423</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">200.2304</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">14</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">205.8131</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.0869</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.7705</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">200.0308</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">15</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">205.4258</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">203.6746</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.3822</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">199.6171</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">16</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">205.0834</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">203.3077</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.8059</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">200.0187</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">17</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.7782</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">202.9812</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">201.1239</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">199.3167</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">18</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.5493</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">202.7326</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">200.8327</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">199.0059</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">19</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.3412</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">202.5057</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">200.5846</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">198.7405</td>
+        </tr>
+
+        <tr class="hover:bg-gray-50 transition">
+            <td class="p-2 border border-gray-200 text-center font-mono text-xs text-gray-700">20</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">204.1663</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800">202.3151</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">200.7831</td>
+            <td class="p-2 border border-gray-200 text-right font-mono text-sm text-gray-800 bg-blue-50">198.9228</td>
+        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- MODEL SUMMARY SECTION -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-700 mb-4 border-b pb-1">3. Model Architecture Summary</h2>
+
+    <div class="overflow-x-auto mb-4 shadow-md rounded-lg">
+        <table class="min-w-full bg-white">
+            <thead>
+                <tr class="bg-gray-100 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
+                    <th class="p-2 border border-gray-300">Layer (type)</th>
+                    <th class="p-2 border border-gray-300">Output Shape</th>
+                    <th class="p-2 border border-gray-300 text-right">Param #</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">input_1 (Dense)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 512)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">15,360</td>
+        </tr>
+<tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">dropout (Dropout)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 512)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">0</td>
+        </tr>
+<tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">hidden_1 (Dense)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 256)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">131,328</td>
+        </tr>
+<tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">dropout_1 (Dropout)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 256)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">0</td>
+        </tr>
+<tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">hidden_2 (Dense)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 128)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">32,896</td>
+        </tr>
+<tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">hidden_3 (Dense)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 64)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">8,256</td>
+        </tr>
+<tr class="border-b border-gray-200">
+            <td class="p-2 border border-gray-300 text-sm font-semibold text-gray-800">output_layer (Dense)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700">(None, 1)</td>
+            <td class="p-2 border border-gray-300 text-sm font-mono text-gray-700 text-right">65</td>
+        </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-sm font-semibold text-gray-700 space-y-1 p-3 bg-gray-50 rounded-lg">
+        <p>Total params: 187,905</p>
+        <p>Trainable params: <span class="text-green-600">187,905</span></p>
+        <p>Non-trainable params: 0</p>
+    </div>
+
+        </div>
+
+
+        <!-- CONFIGURATION SECTION -->
+        <div class="mb-8 pt-4 border-t border-gray-200">
+            <h2 class="text-2xl font-semibold text-indigo-700 mb-4 border-b pb-1">4. Environment and Training Configuration</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg"><span class="font-semibold text-gray-700">Total Samples:</span> (1436944, 15)</div>
+                <div class="bg-gray-50 p-3 rounded-lg"><span class="font-semibold text-gray-700">Input Features (after preprocessing):</span> 29</div>
+                <div class="bg-gray-50 p-3 rounded-lg"><span class="font-semibold text-gray-700">Model Name:</span> <code>larger_model</code></div>
+                <div class="bg-gray-50 p-3 rounded-lg"><span class="font-semibold text-gray-700">Batch Size:</span> 4096</div>
+                <div class="bg-gray-50 p-3 rounded-lg md:col-span-2"><span class="font-semibold text-gray-700">Training Duration:</span> <span class="font-bold text-green-600">292.90 seconds</span></div>
+                <div class="bg-yellow-50 p-3 rounded-lg md:col-span-2"><span class="font-semibold text-gray-700">Hardware:</span> <span class="text-yellow-800">No GPU found. Training on CPU.</span></div>
+                <div class="bg-indigo-50 p-3 rounded-lg md:col-span-2"><span class="font-semibold text-gray-700">Target Column:</span> <code>trip_duration</code></div>
+                <div class="bg-gray-50 p-3 rounded-lg md:col-span-2"><span class="font-semibold text-gray-700">Numerical Features:</span> vendor_id, passenger_count, Distance_KM, Manhattan_Distance, day_of_week, pickup_hour, pickup_day, pickup_month</div>
+                <div class="bg-gray-50 p-3 rounded-lg md:col-span-2"><span class="font-semibold text-gray-700">Categorical Features:</span> store_and_fwd_flag_V, time_of_day_category, is_weekend, pickup_cluster, dropoff_cluster, is_holiday</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
