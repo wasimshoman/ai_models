@@ -49,10 +49,10 @@ All regression model results are summarized in dedicated HTML reports:
 
 | Model Name | Training Duration (Approx.) | Test R2 Score | Test RMSE (Approx. Seconds) |
 | :---- | :---- | :---- | :---- |
-| **Linear Regression** | Negligible | $0.25$ | $\\sim 250$ |
-| **Small NN** (small\_model) | $\\sim 3.76$ seconds | $0.65$ | $\\sim 180$ |
-| **Medium NN** (medium\_model) | $\\sim 9.31$ seconds | $0.75$ | $\\sim 150$ |
-| **Larger NN** (larger\_model) | $\\sim 35.74$ seconds | $\\mathbf{0.82}$ | $\\mathbf{\\sim 120}$ |
+| **Linear Regression** | Negligible | $0.63$ | $\\sim 348$ |
+| **Small NN** (small\_model) | $\\sim 3.76$ seconds | $0.61$ | $\\sim 355$ |
+| **Medium NN** (medium\_model) | $\\sim 9.31$ seconds | $0.71$ | $\\sim 360$ |
+| **Larger NN** (larger\_model) | $\\sim 35.74$ seconds | $\\mathbf{0.84}$ | $\\mathbf{\\sim 293}$ |
 
 **Conclusion:** The **Linear Regression** model established a weak baseline with an $R^2$ score of only $0.25$ (explaining $25\\%$ of the variance) and a high RMSE of $\\sim 250$ seconds. This poor performance immediately validated the need for more complex, non-linear models. The **Larger Neural Network** achieved the highest $R^2$ score ($\\mathbf{0.82}$), confirming that deep learning was necessary to accurately model the non-linear relationship between features and trip duration.
 
