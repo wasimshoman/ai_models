@@ -70,7 +70,6 @@ The analysis compares performance across a wide range of classification algorith
 | GBC.ipynb | **Gradient Boosting Classifier** |
 | KNN.ipynb | **K-Nearest Neighbors (KNN)** |
 | logistic-regression.ipynb | **Logistic Regression** |
-| NN.ipynb | **Neural Network Classifier** |
 | RandomForest.ipynb | **Random Forest Classifier** |
 | SVM.ipynb | **Support Vector Machine (SVM)** |
 
