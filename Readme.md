@@ -45,7 +45,7 @@ All regression model results are summarized in dedicated HTML reports:
 * regression/HTML\_pages/nn\_small\_model.html  
 * regression/HTML\_pages/nn\_medium\_model.html  
 * regression/HTML\_pages/nn\_larger\_model.html  
-* regression/linear\_regression\_report.html
+* regression/HTML\_pages/linear\_regression\_report.html
 
 | Model Name | Training Duration (Approx.) | Test R2 Score | Test RMSE (Approx. Seconds) |
 | :---- | :---- | :---- | :---- |
