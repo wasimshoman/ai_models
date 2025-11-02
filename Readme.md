@@ -102,7 +102,7 @@ pip install pandas numpy scikit-learn tensorflow matplotlib seaborn jupyter
 
 1. **Start with Data Prep:** Open and execute all cells in **Data\_prep.ipynb** to ensure the cleaned data file is generated and saved in the expected location.  
 2. **Run Regression Models:** Execute the Python scripts in the regression/ folder:  
-   python regression/linear\_regre.py  
-   python regression/all\_nn\_models.py
+   regression/linear\_regre.py  
+   regression/all\_nn\_models.py
 
 3. **Run Classification Models:** Open and run the individual Jupyter Notebooks in the classification/ folder to train the respective models, generate visualizations, and update the model\_metrics.csv file.
